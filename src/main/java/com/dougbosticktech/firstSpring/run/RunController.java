@@ -1,5 +1,6 @@
 package com.dougbosticktech.firstSpring.run;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -44,7 +45,7 @@ public class RunController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@RequestBody Run run, @PathVariable Integer id){
+    void update(@Valid @RequestBody Run run, @PathVariable Integer id){
         runRepository.update(run, id);
     }
 
